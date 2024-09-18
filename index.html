@@ -13,11 +13,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #e2e2e2;
+            background-color: #ccc;
             font-family: Arial, sans-serif;
         }
         .container {
-            background-color: rgb(30, 154, 150);
+            background-color: white;
             border-radius: 15px;
             padding: 40px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -39,20 +39,7 @@
             font-size: 16px;
         }
 
-        #changeText2 {
-            padding: 10px 20px;
-            background-color: #5A49E6;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            cursor: pointer;
-            font-size: 16px;
-        }
         #changeText:hover {
-            background-color: #4A39D6;
-        }
-
-        #changeText2:hover {
             background-color: #4A39D6;
         }
     </style>
@@ -60,16 +47,21 @@
 <body>
     <div class="container">
         <h1 id="title">Tekan Disini Dapat Hadiah</h1>
-        <button id="changeText">Kiri</button>
-        <button id="changeText2">Kanan</button>
+        <button id="changeText">Here</button>
     </div>
 
     <script>
+        const texts = [
+            'Tekan Disini Dapat Hadiah',
+            'Tekan Lagi',
+            'Sekali Lagi',
+            'Selamat Anda Kena Tipu'
+        ];
+        let klik = 0;
+
         $('#changeText').click(function() {
-            $('#title').text('Selamat Anda Kena Tipu!');
-        });
-        $('#changeText2').click(function() {
-            $('#title').text('Selamat Anda Mendapat Hadiah');
+        $('#title').text(texts[klik]);
+            klik = (klik + 1) % texts.length;
         });
     </script>
 </body>
